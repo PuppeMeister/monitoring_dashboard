@@ -29,17 +29,18 @@
         
 
         <!-- <RealTime title="Real time"/> -->
-        <PowerGeneration />
+        <!-- <PowerGeneration />
         <Consumption />
-        <BatteryLevel/>
-        <Weather />
+        <BatteryLevel/> -->
+        <!-- <Weather />
         <OperationalTime />
-        <Warning />
+        <Warning /> -->
 
     </div>
 
 </template>
 
+<!-- <script src="/socket.io/socket.io.js"></script> -->
 <script>
 
 import DeviceInfo from './dashboard/dashboardcomponent/DeviceInfo.vue';
@@ -49,10 +50,19 @@ import BatteryLevel from './dashboard/dashboardcomponent/BatteryLevel.vue';
 import OperationalTime from './dashboard/dashboardcomponent/OperationalTime.vue';
 import Weather from './dashboard/dashboardcomponent/Weather.vue';
 import Warning from './dashboard/dashboardcomponent/Warning.vue';
+import io from 'socket.io-client';
 
 import axios from 'axios';
 
+/*var socketDeviceType = io('http://localhost:80/deviceType');
+var socketDeviceLocation = io('http://localhost:80/deviceLocation');
+var socketDeviceName = io('http://localhost:80/deviceName');*/
+
+/*var socketDeviceType = null;
+var socketDeviceLocation = null;
+var socketDeviceName = null;*/
 export default{
+    
     name: 'dashboard',
     props: ['requestType'],
 
@@ -124,7 +134,30 @@ export default{
     
         showSidebar: function(){
             this.$emit("showSidebar", true);
+        },
+
+        listenToServer : function(){
+
+              var socketDeviceType = io('http://localhost:80/deviceType');
+              var socketDeviceLocation = io('http://localhost:80/deviceLocation');
+              var socketDeviceName = io('http://localhost:80/deviceName');
+
+        socketDeviceName.on('sendDeviceName', (data)=>{
+            this.deviceName = data;
+            console.log("Device Name = "+data);
+        });
+
+        socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
+            this.deviceLocation = data;+
+            console.log("Device Location = "+data);
+            });
+            
+        socketDeviceType.on('sendDeviceType', (data)=>{ 
+            this.deviceType = data;
+            console.log("Device Type = "+data);
+            });
         }
+    
 
     },
 
@@ -140,17 +173,100 @@ export default{
         Weather,
         Warning
     },
+  
+    /*sockets: {
+        connect(){
+            console.log("Connected");
+        }
+    },*/
+    
+    create(){
+        /*var socketDeviceType = io('http://localhost:80/deviceType');
+        var socketDeviceLocation = io('http://localhost:80/deviceLocation');
+        var socketDeviceName = io('http://localhost:80/deviceName');*/
+
+        /*console.log("I Can't stop the night");
+        
+        socketDeviceName.on('sendDeviceName', (data)=>{
+            this.deviceName = data;
+            console.log("Device Name = "+data);
+        });
+
+        socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
+            this.deviceLocation = data;+
+            console.log("Device Location = "+data);
+            });
+            
+        socketDeviceType.on('sendDeviceType', (data)=>{ 
+            this.deviceType = data;
+            console.log("Device Type = "+data);
+            });*/
+    },
+     
+    watch:{
+       /*sockets(event){
+            socketDeviceName.on('sendDeviceName', (data)=>{
+            this.deviceName = data;
+            console.log("Device Name = "+data);
+            });
+ 
+        }*/
+
+        /*this.socketDeviceName.on('sendDeviceName', (data)=>{
+            this.deviceName = data;
+            console.log("Device Name = "+data);
+        });
+
+        this.socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
+            this.deviceLocation = data;+
+            console.log("Device Location = "+data);
+            });
+            
+        this.socketDeviceType.on('sendDeviceType', (data)=>{ 
+            this.deviceType = data;
+            console.log("Device Type = "+data);
+            });*/
+
+        /*socketDeviceType(event){
+            this.socketDeviceType.on('sendDeviceType', (data)=>{ 
+            this.deviceType = data;
+            console.log("Device Type = "+data);
+            })
+        }*/    
+    },
 
     mounted: function(){
-        this.showSidebar()
-        this.requestDeviceType()
-        this.requestDeviceName()
-        this.requestDeviceLocation()
+        this.listenToServer()
+       // this.showSidebar()
+       // this.requestDeviceType()
+       //this.requestDeviceName()
+       // this.requestDeviceLocation()
 
         /*this.interval = setInterval(function () {
                 this.reloadMyFunctions()
                 console.log("Refresh the Dashboard")
         }.bind(this), 30000)*/
+
+        //console.log("I Can't stop the night");
+        
+        //var socketDeviceType = io('http://localhost:80/deviceType');
+        //var socketDeviceLocation = io('http://localhost:80/deviceLocation');
+        //var socketDeviceName = io('http://localhost:80/deviceName');
+       
+
+        /*this.socketDeviceName.on('sendDeviceName', (data)=>{
+            this.deviceName = data;
+            console.log("Device Name = "+data);
+        });
+
+        this.socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
+            this.deviceLocation = data;+
+            console.log("Device Location = "+data);
+            });
+        this.socketDeviceType.on('sendDeviceType', (data)=>{ 
+            this.deviceType = data;
+            console.log("Device Type = "+data);
+            });*/
     }
     //},
 
@@ -159,6 +275,7 @@ export default{
     }*/
    
 }
+
 
 
 </script>

@@ -5,7 +5,7 @@
                 <!-- <div class="card-left float-left text-left">
                     <!-- <iclass="icon-lg pe-7f-map-marker"></i> -->
                    <img src="src/images/summer.png" alt="" height="50" width="50" class="float-right">
-                    <h3 class="float-left bold"> <strong>Power Generation</strong></h3>
+                    <h3 class="float-left bold"> <strong>Solar</strong></h3>
                 <!-- </div> -->
               
                             
@@ -15,38 +15,38 @@
                 <!-- <h6 class="text-center"><Strong>{{ totalPowerGen }}</Strong><span class="badge badge-info"> kWh </span></h6> --> 
                   
                      
-                      <div class = "small">
+                      <!-- <div class = "small">
                              <line-chart-js :dataChart = "theDataChart" 
                                              :theBackgroundColor ="bgValue"/>
-                             </div>
+                      </div> -->
                         <!-- <PowerChart/> -->
                   
             </div>
             <div class="card-footer bg-white br-0 pl-5 pr-5 pt-0 pb-0">
-                    <div class="row">
-                    <div class="col-md-4">
-                        <div class="item text-center">
-                            <span class="badge badge-dark">Total</span>
-                            <h4 class="m-0 pb-1">{{ totalPowerGen }}<span> Watt</span></h4>
-                            
-                        </div> 
-                    </div>   
-                    <div class="col-md-4">
-                        <div class="item text-center">
-                            <span class="badge badge-dark">Yesterday</span>
-                            <h4 class="m-0 pb-1">{{ yesterdayPowerGen }}<span> Watt</span></h4>
-                            
+                    <!-- <div class="row">
+                        <div class="col-md-4">
+                            <div class="item text-center">
+                                <span class="badge badge-dark">Total</span>
+                                <h4 class="m-0 pb-1">{{ totalPowerGen }}<span> Watt</span></h4>
+                                
+                            </div> 
+                        </div>   
+                        <div class="col-md-4">
+                            <div class="item text-center">
+                                <span class="badge badge-dark">Yesterday</span>
+                                <h4 class="m-0 pb-1">{{ yesterdayPowerGen }}<span> Watt</span></h4>
+                                
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="item text-center">
-                            <span class="badge badge-dark">Co2 Emission</span>
-                             <h4 class="m-0 pb-1">{{ co2Emission}}<span> Watt</span></h4>
-                           
+                        <div class="col-md-4">
+                            <div class="item text-center">
+                                <span class="badge badge-dark">Co2 Emission</span>
+                                <h4 class="m-0 pb-1">{{ co2Emission}}<span> Watt</span></h4>
+                            
+                            </div>
                         </div>
-                    </div>
                     
-                </div>
+                    </div> -->
             </div>
         </div>
     </div>

@@ -160,7 +160,7 @@
                                                 
                                                 <span class="switch-handle"></span>
                                     </label>
-                        </template> 
+                        </template>
                          <!-- <span class="badge badge-dark">off</span> -->
                         </div>
                   </div>
@@ -232,7 +232,7 @@
                     this.switchVariant,
                     this.switchPill,
                     this.switchSize
-                ]
+                    ]
                 },
                 switchType () {
                 return this.type ? `switch-${this.type}` : `switch-default`

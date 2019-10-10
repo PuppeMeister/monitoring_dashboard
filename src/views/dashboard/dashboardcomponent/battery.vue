@@ -139,8 +139,12 @@
                             </div>     
                         </div>
                        
-                        <div class="col-md-4">
-                           
+                        <div class="col-md-5">
+                             <!-- <switch-button v-model="switch1">Lorem ipsum dolor sit amet</switch-button> -->
+                             <!-- <switchbutton></switchbutton> -->
+                            
+                                <h4 class="m-0 pb-0"><switchbutton v-model="switch1"></switchbutton> </h4>
+                            
                         </div>
                   </div>
 
@@ -156,10 +160,33 @@
     <!-- </div> -->
 </template>
 
+
+
 <script>
     import axios from 'axios';
-   
-    export default({
+    import switchbutton from './switch-button.vue';
+
+    /*var switchComponentButton = { template: "#switch-button",
+        
+        model: {
+                 prop: "isEnabled",
+                 event: "toggle"
+         },
+        props: {
+            isEnabled: Boolean,
+            color: {
+            type: String,
+            required: false,
+            default: "#4D4D4D"
+            }
+        },
+        methods: {
+            toggle: function() {
+            this.$emit("toggle", !this.isEnabled);
+            }
+        }
+    }*/
+    export default{
        
         name: 'battery',
        
@@ -183,24 +210,22 @@
             
         },
 
-        mounted: function(){
-        
+        data: function() {
+            return {
+            switch1: false
+            };
         },
 
-        computed: {
-              
-        },
-        methods: {
-                
-        }
-        
-    })
+       components: {
+           switchbutton
+        }  
+    }
 </script> 
 
 
 
 <style scoped>
     .small {
-    max-width: 600px;
-  }
+        max-width: 600px;
+    }
 </style>

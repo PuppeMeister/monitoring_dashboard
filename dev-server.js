@@ -69,8 +69,9 @@ devMiddleware.waitUntilValid(function () {
 })
 
 app.post('/auth/:action', (req, res) => {
+  console.log("Iyaaaaaaaaaaaaaa bener ini akuuu");
   res.redirect('/')
-})
+}),
 
 module.exports = app.listen(port, function (err) {
   if (err) {

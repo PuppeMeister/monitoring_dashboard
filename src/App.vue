@@ -2,7 +2,7 @@
   <div id="app">
     <auth-layout v-if="isAuth"></auth-layout>
       <div class="admin-container" v-else>
-        <Sidebar :navItems="nav" v-if='this.$route.name !== "choosingDevicePage"'/>
+        <!-- <Sidebar :navItems="nav" v-if='this.$route.name !== "choosingDevicePage"'/> -->
 
         <div id="right-panel" class="right-panel">
           <!-- <Header/> -->
@@ -19,7 +19,7 @@
 <script>
 import nav from './nav'
 //import Header from './components/Header.vue'
-import Sidebar from './components/Sidebar.vue'
+//import Sidebar from './components/Sidebar.vue'
 import AuthLayout from './layouts/AuthLayout.vue';
 
 export default {
@@ -38,9 +38,10 @@ export default {
   },
 
   components: {
-    AuthLayout,
+    AuthLayout
+    //AuthLayout,
     //Header,-
-    Sidebar
+    //Sidebar
   },
   computed: {
     name(){

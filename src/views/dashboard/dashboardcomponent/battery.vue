@@ -194,7 +194,7 @@
 
         methods: {
 
-                    pullAmountPerMinute: function () {
+                    sendRequest: function () {
             
                         var urlWrapper ="http://127.0.0.1:19998/powerGeneration/amountPerMinute"
         
@@ -208,6 +208,18 @@
                         }) 
                     }        
             
+        },
+
+        watch :{
+            switch1 : function(value){
+                if(value){
+                    this.sendRequest();
+                }
+                else{
+                    console.log("Boong..");
+                }
+                
+            }
         },
 
         data: function() {

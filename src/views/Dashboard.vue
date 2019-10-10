@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        <DeviceInfo
+        <!-- <DeviceInfo
             title="Device Name"
             icon="icon-lg pe-7f-comment"
             bgclass="bg-flat-color-1"
@@ -25,12 +25,43 @@
             :counter="deviceLocation"
             title="Device Location"
         >
-        </DeviceInfo>
+        </DeviceInfo> -->
+        
+        <SolarLoad 
+            title="Solar" 
+            :power="solarPower" 
+            :current="solarCurrent"
+            :voltage="solarVoltage"
+            :daily="solarDaily"
+            :monthly="solarMonthly"
+            :annual="solarAnnual"
+            :total="solarTotal"></SolarLoad>
+
         
 
+        <Battery
+            title="Battery"
+            :power="battPower" 
+            :current="battCurrent"
+            :voltage="battVoltage"
+            :level="battLevel"
+            :charging="charging"
+            :discharging="discharging"> </Battery>
+
+        <SolarLoad
+            title="Load"
+            :power="loadPower" 
+            :current="loadCurrent"
+            :voltage="loadVoltage"
+            :daily="loadDaily"
+            :monthly="loadMonthly"
+            :annual="loadAnnual"
+            :total="loadTotal"> </SolarLoad>
+
         <!-- <RealTime title="Real time"/> -->
-        <!-- <PowerGeneration />
-        <Consumption />
+        <PowerGeneration title = "Solar" />
+        <PowerGeneration title = "Power" />
+        <!-- <Consumption />
         <BatteryLevel/> -->
         <!-- <Weather />
         <OperationalTime />
@@ -50,17 +81,14 @@ import BatteryLevel from './dashboard/dashboardcomponent/BatteryLevel.vue';
 import OperationalTime from './dashboard/dashboardcomponent/OperationalTime.vue';
 import Weather from './dashboard/dashboardcomponent/Weather.vue';
 import Warning from './dashboard/dashboardcomponent/Warning.vue';
+import SolarLoad from './dashboard/dashboardcomponent/solarload.vue';
+import Battery from './dashboard/dashboardcomponent/battery.vue';
 import io from 'socket.io-client';
 
 import axios from 'axios';
 
-/*var socketDeviceType = io('http://localhost:80/deviceType');
-var socketDeviceLocation = io('http://localhost:80/deviceLocation');
-var socketDeviceName = io('http://localhost:80/deviceName');*/
+const socket = io('http://localhost:19997');
 
-/*var socketDeviceType = null;
-var socketDeviceLocation = null;
-var socketDeviceName = null;*/
 export default{
     
     name: 'dashboard',
@@ -68,8 +96,33 @@ export default{
 
     data(){
         return{
-            deviceName: "", deviceType: "", deviceLocation: ""
-		
+            deviceName: "", deviceType: "", deviceLocation: "",
+            
+           
+            solarPower : "0",
+            solarCurrent : "0",
+            solarVoltage : "0",
+            solarAnnual : "0",
+            solarDaily : "0",
+            solarMonthly : "0",
+            solarTotal: "0",
+
+            loadPower : "0",
+            loadCurrent : "0",
+            loadVoltage : "0",
+            loadAnnual : "0",
+            loadDaily : "0",
+            loadMonthly : "0",
+            loadTotal : "0",
+
+            battPower: "0", 
+            battCurrent: "0",
+            battVoltage:"0",
+            battLevel:"0",
+            charging : "No Status",
+            discharging : "No Status"
+
+
         }
     },
    
@@ -121,6 +174,7 @@ export default{
         
         },
 
+
         reloadMyFunctions : function(){
                 this.requestDeviceType()
                 this.requestDeviceName()
@@ -138,24 +192,116 @@ export default{
 
         listenToServer : function(){
 
-              var socketDeviceType = io('http://localhost:80/deviceType');
-              var socketDeviceLocation = io('http://localhost:80/deviceLocation');
-              var socketDeviceName = io('http://localhost:80/deviceName');
-
-        socketDeviceName.on('sendDeviceName', (data)=>{
-            this.deviceName = data;
-            console.log("Device Name = "+data);
-        });
-
-        socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
-            this.deviceLocation = data;+
-            console.log("Device Location = "+data);
+            // Solar Listener
+            socket.on('solarCurrent', (data)=>{
+                this.deviceName = data;
+                this.solarCurrent = data;
+                console.log("Device Name = "+data);
             });
+
+            socket.on('solarPower', (data)=>{ 
+                this.deviceLocation = data;
+                this.solarPower = data;
+                console.log("Device Location = "+data);
+                });
             
-        socketDeviceType.on('sendDeviceType', (data)=>{ 
-            this.deviceType = data;
-            console.log("Device Type = "+data);
+            socket.on('solarVoltage', (data)=>{ 
+                this.deviceType = data;
+                this.solarVoltage = data
+                console.log("Device Type = "+data);
+                });
+            
+            socket.on('solarAnnual', (data)=>{
+                this.solarAnnual = data;
+                console.log("Solar Annual = "+data);
             });
+
+            socket.on('solarDaily', (data)=>{
+                this.solarDaily = data;
+                console.log("Solar Daily = "+data);
+            });
+
+            socket.on('solarMonthly', (data)=>{
+                this.solarMonthly = data;
+                console.log("Solar Monthly = "+data);
+            });
+
+            socket.on('solarAnnual', (data)=>{
+                this.solarAnnual = data;
+                console.log("Solar Annual = "+data);
+            });
+
+            socket.on('solarTotal', (data)=>{
+                this.solarTotal = data;
+                console.log("Solar total = "+data);
+            });
+
+            //Load Listener
+
+            socket.on('loadCurrent', (data)=>{
+                            this.loadCurrent = data;
+                            console.log("Load Current = "+data);
+                });
+
+                socket.on('loadVoltage', (data)=>{
+                            this.loadVoltage = data;
+                            console.log("Load Voltage = "+data);
+                });
+
+                socket.on('loadPower', (data)=>{
+                            this.loadPower = data;
+                            console.log("Load Power = "+data);
+                });
+                socket.on('loadDaily', (data)=>{
+                            this.loadDaily = data;
+                            console.log("Load Daily = "+data);
+                });
+                socket.on('loadMonthly', (data)=>{
+                            this.loadMonthly = data;
+                            console.log("Load Monthly = "+data);
+                });
+
+                socket.on('loadAnnual', (data)=>{
+                            this.loadAnnual = data;
+                            console.log("Load Annual = "+data);
+                });
+
+                socket.on('loadTotal', (data)=>{
+                            this.loadTotal = data;
+                            console.log("Load Total = "+data);
+                });
+            
+            //battery listener
+
+                socket.on('battLevel', (data)=>{
+                    this.battLevel= data;
+                    console.log("Battery Level = "+data);
+                });
+
+                socket.on('battCurrent', (data)=>{
+                    this.battCurrent= data;
+                    console.log("Battery Current = "+data);
+                });
+
+                socket.on('battVoltage', (data)=>{
+                    this.battVoltage= data;
+                    console.log("Battery Voltage = "+data);
+                });
+                socket.on('battPower', (data)=>{
+                    this.battPower= data;
+                    console.log("Battery Power = "+data);
+                });
+                
+                socket.on('charging', (data)=>{
+                    this.charging= data;
+                    console.log("Battery Charging = "+data);
+                });
+
+                socket.on('discharging', (data)=>{
+                    this.discharging= data;
+                    console.log("Battery Discharging = "+data);
+                });
+
         }
     
 
@@ -171,108 +317,19 @@ export default{
         BatteryLevel,
         OperationalTime,
         Weather,
-        Warning
+        Warning,
+        SolarLoad,
+        Battery
     },
   
-    /*sockets: {
-        connect(){
-            console.log("Connected");
-        }
-    },*/
     
-    create(){
-        /*var socketDeviceType = io('http://localhost:80/deviceType');
-        var socketDeviceLocation = io('http://localhost:80/deviceLocation');
-        var socketDeviceName = io('http://localhost:80/deviceName');*/
-
-        /*console.log("I Can't stop the night");
-        
-        socketDeviceName.on('sendDeviceName', (data)=>{
-            this.deviceName = data;
-            console.log("Device Name = "+data);
-        });
-
-        socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
-            this.deviceLocation = data;+
-            console.log("Device Location = "+data);
-            });
-            
-        socketDeviceType.on('sendDeviceType', (data)=>{ 
-            this.deviceType = data;
-            console.log("Device Type = "+data);
-            });*/
-    },
-     
-    watch:{
-       /*sockets(event){
-            socketDeviceName.on('sendDeviceName', (data)=>{
-            this.deviceName = data;
-            console.log("Device Name = "+data);
-            });
- 
-        }*/
-
-        /*this.socketDeviceName.on('sendDeviceName', (data)=>{
-            this.deviceName = data;
-            console.log("Device Name = "+data);
-        });
-
-        this.socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
-            this.deviceLocation = data;+
-            console.log("Device Location = "+data);
-            });
-            
-        this.socketDeviceType.on('sendDeviceType', (data)=>{ 
-            this.deviceType = data;
-            console.log("Device Type = "+data);
-            });*/
-
-        /*socketDeviceType(event){
-            this.socketDeviceType.on('sendDeviceType', (data)=>{ 
-            this.deviceType = data;
-            console.log("Device Type = "+data);
-            })
-        }*/    
-    },
 
     mounted: function(){
-        this.listenToServer()
-       // this.showSidebar()
-       // this.requestDeviceType()
-       //this.requestDeviceName()
-       // this.requestDeviceLocation()
-
-        /*this.interval = setInterval(function () {
-                this.reloadMyFunctions()
-                console.log("Refresh the Dashboard")
-        }.bind(this), 30000)*/
-
-        //console.log("I Can't stop the night");
         
-        //var socketDeviceType = io('http://localhost:80/deviceType');
-        //var socketDeviceLocation = io('http://localhost:80/deviceLocation');
-        //var socketDeviceName = io('http://localhost:80/deviceName');
+        this.listenToServer()
        
-
-        /*this.socketDeviceName.on('sendDeviceName', (data)=>{
-            this.deviceName = data;
-            console.log("Device Name = "+data);
-        });
-
-        this.socketDeviceLocation.on('sendDeviceLocation', (data)=>{ 
-            this.deviceLocation = data;+
-            console.log("Device Location = "+data);
-            });
-        this.socketDeviceType.on('sendDeviceType', (data)=>{ 
-            this.deviceType = data;
-            console.log("Device Type = "+data);
-            });*/
     }
-    //},
-
-    /*beforeDestroy: function(){  
-            clearInterval(this.interval);
-    }*/
+   
    
 }
 

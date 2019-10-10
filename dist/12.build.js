@@ -1,20 +1,20 @@
 webpackJsonp([12],{
 
-/***/ 1053:
+/***/ 1073:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1054);
+var content = __webpack_require__(1074);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("77bd8d03", content, true, {});
+var update = __webpack_require__(2)("6f3393a2", content, true, {});
 
 /***/ }),
 
-/***/ 1054:
+/***/ 1074:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -22,36 +22,39 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".table thead tr{color:#007bff}.error-icon{color:#e34a4a}.success-icon{display:inline-block;color:#4ae387}.table-sm td,.table-sm th{padding:.7rem}.color-icon-label-table td:first-child{width:1rem}", ""]);
+exports.push([module.i, ".ui-typography .typo-articles{margin-bottom:6.25rem;width:90%}.ui-typography .h1,.ui-typography .h2,.ui-typography .h3,.ui-typography .h4,.ui-typography .h5,.ui-typography .h6,.ui-typography h1,.ui-typography h2,.ui-typography h3,.ui-typography h4,.ui-typography h5,.ui-typography h6{font-weight:700}.ui-typography mark{background-color:#dbf9e7}.ui-typography .clickable-text{cursor:pointer}.ui-typography .widget-body{padding:3.75rem 4.7rem 0 2.2rem!important}.ui-typography .col-md-6{padding-right:0}.ui-typography .vue-lists ul,.ui-typography ol{width:85%}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 1055:
+/***/ 1075:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-xs-12 col-md-12"},[_c('card',{attrs:{"header-text":"Basic Table"}},[_c('div',{staticClass:"table-responsive"},[_c('table',{staticClass:"table table-striped first-td-padding"},[_c('thead',[_c('tr',[_c('td',[_vm._v("Name")]),_vm._v(" "),_c('td',[_vm._v("Email")]),_vm._v(" "),_c('td',[_vm._v("City")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("Score")]),_vm._v(" "),_c('td')])]),_vm._v(" "),_c('tbody',[_c('tr',[_c('td',[_vm._v("Matthew McCormick")]),_vm._v(" "),_c('td',[_vm._v("matthew30@mail.ol")]),_vm._v(" "),_c('td',[_vm._v("Vancouver")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("93")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Nancy Bo")]),_vm._v(" "),_c('td',[_vm._v("nancy@boonweb.com")]),_vm._v(" "),_c('td',[_vm._v("Washington")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("280")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Frederiko Lopez")]),_vm._v(" "),_c('td',[_vm._v("fr.lopez@webmail.sp")]),_vm._v(" "),_c('td',[_vm._v("Barcelona")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("16")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Stanley Hummer")]),_vm._v(" "),_c('td',[_vm._v("mr_winner_2999@gmail.cb")]),_vm._v(" "),_c('td',[_vm._v("Manchester")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("57")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Lendley Wintz")]),_vm._v(" "),_c('td',[_vm._v("9938198146@mailster.io")]),_vm._v(" "),_c('td',[_vm._v("Wien")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("113")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Barbara Noz")]),_vm._v(" "),_c('td',[_vm._v("barbaranoz@mailster.io")]),_vm._v(" "),_c('td',[_vm._v("Brussels")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("68")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Matthew McCormick")]),_vm._v(" "),_c('td',[_vm._v("matthew30@mail.ol")]),_vm._v(" "),_c('td',[_vm._v("Vancouver")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("93")]),_vm._v(" "),_c('td')]),_vm._v(" "),_c('tr',[_c('td',[_vm._v("Nancy Bo")]),_vm._v(" "),_c('td',[_vm._v("nancy@boonweb.com")]),_vm._v(" "),_c('td',[_vm._v("Washington")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("280")]),_vm._v(" "),_c('td')])])])])])],1)]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-12"},[_c('card',{attrs:{"header-text":"Colors, Icons, Labels"}},[_c('div',{staticClass:"table-responsive"},[_c('table',{staticClass:"table table-striped table-sm color-icon-label-table"},[_c('thead',[_c('tr',[_c('td'),_vm._v(" "),_c('td',[_vm._v("Name")]),_vm._v(" "),_c('td',[_vm._v("Email")]),_vm._v(" "),_c('td',[_vm._v("City")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("Score")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})])]),_vm._v(" "),_c('tbody',[_c('tr',[_c('td'),_vm._v(" "),_c('td',[_vm._v("Matthew McCormick")]),_vm._v(" "),_c('td',[_vm._v("matthew30@mail.ol")]),_vm._v(" "),_c('td',[_vm._v("Vancouver")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("93")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})]),_vm._v(" "),_c('tr',[_c('td'),_vm._v(" "),_c('td',[_vm._v("Nancy Bo")]),_vm._v(" "),_c('td',[_vm._v("nancy@boonweb.com")]),_vm._v(" "),_c('td',[_vm._v("Washington")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("280")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})]),_vm._v(" "),_c('tr',[_c('td'),_vm._v(" "),_c('td',[_vm._v("Frederiko Lopez")]),_vm._v(" "),_c('td',[_vm._v("fr.lopez@webmail.sp")]),_vm._v(" "),_c('td',[_vm._v("Barcelona")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("16")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})]),_vm._v(" "),_c('tr',{staticClass:"table-danger"},[_c('td',[_c('span',{staticClass:"badge badge-pill badge-danger"},[_vm._v("DANGER")])]),_vm._v(" "),_c('td',[_vm._v("Stanley Hummer")]),_vm._v(" "),_c('td',[_vm._v("mr_winner_2999@gmail.cb")]),_vm._v(" "),_c('td',[_vm._v("Manchester")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("57")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}},[_c('i',{staticClass:"fa fa-exclamation-triangle icon-right input-icon error-icon"})])]),_vm._v(" "),_c('tr',{staticClass:"table-success"},[_c('td',[_c('span',{staticClass:"badge badge-pill badge-primary"},[_vm._v("SUCCESS")])]),_vm._v(" "),_c('td',[_vm._v("Lendley Wintz")]),_vm._v(" "),_c('td',[_vm._v("9938198146@mailster.io")]),_vm._v(" "),_c('td',[_vm._v("Wien")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("113")]),_vm._v(" "),_c('td',{staticClass:"valid",attrs:{"align":"middle"}},[_c('i',{staticClass:"fa fa-check success-icon icon-right input-icon"})])]),_vm._v(" "),_c('tr',{staticClass:"table-warning"},[_c('td',[_c('span',{staticClass:"badge badge-pill badge-warning"},[_vm._v("WARNING")])]),_vm._v(" "),_c('td',[_vm._v("Barbara Noz")]),_vm._v(" "),_c('td',[_vm._v("barbaranoz@mailster.io")]),_vm._v(" "),_c('td',[_vm._v("Brussels")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("68")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})]),_vm._v(" "),_c('tr',[_c('td'),_vm._v(" "),_c('td',[_vm._v("Matthew McCormick")]),_vm._v(" "),_c('td',[_vm._v("matthew30@mail.ol")]),_vm._v(" "),_c('td',[_vm._v("Vancouver")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("93")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})]),_vm._v(" "),_c('tr',{staticClass:"table-info"},[_c('td',[_c('span',{staticClass:"badge badge-pill badge-info"},[_vm._v("INFO")])]),_vm._v(" "),_c('td',[_vm._v("Nancy Bo")]),_vm._v(" "),_c('td',[_vm._v("nancy@boonweb.com")]),_vm._v(" "),_c('td',[_vm._v("Washington")]),_vm._v(" "),_c('td',{attrs:{"align":"right"}},[_vm._v("280")]),_vm._v(" "),_c('td',{attrs:{"align":"middle"}})])])])])])],1)])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"ui-typography"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-12"},[_c('card',{attrs:{"header-text":"Typography"}},[_c('div',{staticClass:"typo-headers"},[_c('h1',{staticClass:"pb-2 display-4"},[_vm._v("Very Important Information H1")]),_vm._v(" "),_c('h2',{staticClass:"pb-2 display-5"},[_vm._v("Sections & Modal Names H2")]),_vm._v(" "),_c('h3',{staticClass:"pb-2 display-5"},[_vm._v("Articles & Block Headings H3")]),_vm._v(" "),_c('h4',{staticClass:"pb-2 display-5"},[_vm._v("Random Tiny Heading H4")]),_vm._v(" "),_c('h5',{staticClass:"pb-2 display-5"},[_vm._v("Random Tiny Heading H5")]),_vm._v(" "),_c('h6',{staticClass:"pb-4 display-5"},[_vm._v("Random Tiny Heading H6")])]),_vm._v(" "),_c('div',{staticClass:"typo-articles"},[_c('p',[_vm._v("\n            The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, "),_c('span',{staticClass:"bg-flat-color-1 text-light"},[_vm._v("woodlands")]),_vm._v(", thorny scrublands, "),_c('span',{staticClass:"clickable-text"},[_vm._v("mountains")]),_vm._v("\n            , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain "),_c('mark',[_vm._v("highlighted text")]),_vm._v(" zebra are endangered.")]),_vm._v(" "),_c('blockquote',{staticClass:"blockquote mt-3 text-right"},[_c('p',[_vm._v("\n              Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. ")]),_vm._v(" "),_c('footer',{staticClass:"blockquote-footer"},[_vm._v("Jefferey Lebowski")])]),_vm._v(" "),_c('p',[_vm._v("\n            lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals "),_c('span',{staticClass:"bg-flat-color-1 text-light"},[_vm._v("selected text")]),_vm._v(" lacked a dewlap and resembled their\n          ")])]),_vm._v(" "),_c('div',{staticClass:"vue-lists"},[_c('h2',{staticClass:"mb-4"},[_vm._v("Lists")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-6"},[_c('h3',[_vm._v("Unordered")]),_vm._v(" "),_c('ul',[_c('li',[_vm._v("\n                  A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.\n                ")]),_vm._v(" "),_c('li',[_vm._v("The more traditional of these (1 and 2, below) relate to camouflage.")]),_vm._v(" "),_c('li',[_vm._v("The vertical striping may help the zebra hide in the grass by disrupting its outline.")]),_vm._v(" "),_c('li',[_vm._v("\n                  In addition, even at moderate distances, the striking striping merges to an apparent grey.\n                  "),_c('ul',{staticClass:"vue-list-inner"},[_c('li',[_vm._v("However, the camouflage has been contested with arguments that most of a zebra's predator.")]),_vm._v(" "),_c('li',[_vm._v("Such as lions and hyenas cannot see well at a distance.")]),_vm._v(" "),_c('li',[_vm._v("More likely to have smelled or heard a zebra.")])])]),_vm._v(" "),_c('li',[_vm._v("Before seeing it from a distance, especially at night.")])])]),_vm._v(" "),_c('div',{staticClass:"col-md-6 text-left"},[_c('div',[_c('h3',[_vm._v("Ordered")]),_vm._v(" "),_c('ol',{staticClass:"vue-ordered"},[_c('li',[_vm._v("\n                    A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.\n                  ")]),_vm._v(" "),_c('li',[_vm._v("The more traditional of these (1 and 2, below) relate to camouflage.")]),_vm._v(" "),_c('li',[_vm._v("The vertical striping may help the zebra hide in the grass by disrupting its outline.")]),_vm._v(" "),_c('li',[_vm._v("\n                    In addition, even at moderate distances, the striking striping merges to an apparent grey.\n                    "),_c('ul',{staticClass:"vue-list-inner"},[_c('li',[_vm._v("However, the camouflage has been contested with arguments that most of a zebra's predator.\n                      ")]),_vm._v(" "),_c('li',[_vm._v("Such as lions and hyenas cannot see well at a distance.")]),_vm._v(" "),_c('li',[_vm._v("More likely to have smelled or heard a zebra.")])])]),_vm._v(" "),_c('li',[_vm._v("Before seeing it from a distance, especially at night.")])])])])])]),_vm._v(" "),_c('div',{staticClass:"vue-misc"},[_c('h2',{staticClass:"display-5 my-3"},[_vm._v("Misc")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-md-6"},[_c('h3',[_vm._v("Address")]),_vm._v(" "),_c('address',{staticClass:"mt-3"},[_c('strong',[_vm._v("SJØNNA")]),_c('br'),_vm._v("\n                Nezalezhnasti Ave, 13 - 28A"),_c('br'),_vm._v("\n                Minsk, Belarus, 220141"),_c('br'),_vm._v("\n                +375 29 319-53-98"),_c('br'),_vm._v(" "),_c('br'),_vm._v(" "),_c('b',[_vm._v("Vasili Savitski")]),_c('br'),_vm._v(" "),_c('a',{attrs:{"href":"mailto"}},[_vm._v("hello@examplemail.com")])])]),_vm._v(" "),_c('div',{staticClass:"col-md-6"},[_c('h3',{staticClass:"mb-3"},[_vm._v("Well")]),_vm._v(" "),_c('div',{staticClass:"jumbotron"},[_vm._v("\n                Zebras have excellent eyesight. It is believed that they can see in color. Like most ungulates, the zebra's eyes are on the sides of its head, giving it a wide field of view.\n              ")])])])])])],1)])])}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ }),
 
-/***/ 67:
+/***/ 66:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_81816900_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Tables_vue__ = __webpack_require__(1055);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Typography_vue__ = __webpack_require__(832);
+/* empty harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0d958754_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Typography_vue__ = __webpack_require__(1075);
 function injectStyle (ssrContext) {
-  __webpack_require__(1053)
+  __webpack_require__(1073)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+
+
 /* template */
 
 /* template functional */
@@ -63,8 +66,8 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __vue_script__,
-  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_81816900_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Tables_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Typography_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0d958754_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Typography_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -73,6 +76,125 @@ var Component = normalizeComponent(
 
 /* harmony default export */ __webpack_exports__["default"] = (Component.exports);
 
+
+/***/ }),
+
+/***/ 832:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'typography'
+});
 
 /***/ })
 

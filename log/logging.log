@@ -1,0 +1,3 @@
+[2019-09-30T07:43:42.863] [ERROR] default - Application is failed to start. Error: Cannot find module './config/app_config.js'
+Require stack:
+- /home/testinglaptop/lucky_lady/code_base/solar-ui/server_express.js

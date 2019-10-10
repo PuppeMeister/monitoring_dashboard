@@ -1,24 +1,24 @@
  <template>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-6 col-md-6">
         <div class="card">
             <div class="card-top">
                 <!-- <div class="card-left float-left text-left">
                     <!-- <iclass="icon-lg pe-7f-map-marker"></i> -->
                    <img src="src/images/summer.png" alt="" height="50" width="50" class="float-right">
-                    <h3 class="float-left bold"> <strong>Solar</strong></h3>
+                    <h3 class="float-left bold"> <strong>{{ title }}</strong></h3>
                 <!-- </div> -->
               
                             
             </div><!-- /.card-top -->
             <!-- <div class="card-body p-0 pt-4 pb-4 download-chart"> -->
              <div class="card-body p-0 pt-0 pb-0">   
-                <!-- <h6 class="text-center"><Strong>{{ totalPowerGen }}</Strong><span class="badge badge-info"> kWh </span></h6> --> 
+               <!-- <h6 class="text-center"><Strong>{{ totalPowerGen }}</Strong><span class="badge badge-info"> kWh </span></h6> --> 
                   
                      
-                      <!-- <div class = "small">
+                      <div class = "small">
                              <line-chart-js :dataChart = "theDataChart" 
                                              :theBackgroundColor ="bgValue"/>
-                      </div> -->
+                      </div>
                         <!-- <PowerChart/> -->
                   
             </div>
@@ -61,11 +61,14 @@
             PowerChart,
             LineChartJs
         },
-      
-        /*props: {'heading' : String,
+
+        props: [ 'title' ],
+        /*props: [ 'title', 
+                {'heading' : String,
                  'total_1' : String,
                  'total_2' : String,
-                 'chartValue' : String},*/
+                 'chartValue' : String} ], */
+       
         
         data(){
              return{
@@ -152,16 +155,16 @@
 
         mounted: function(){
         
-        this.pullAmountPerMinute()
+        /*this.pullAmountPerMinute()
         this.pullco2Emissions()
         this.pullYesterdayPowerCons()
-        this.pullTotalPowerCons()
+        this.pullTotalPowerCons()*/
 
         /*this.interval = setInterval(function () {
                 this.reloadAllData()
                 console.log("Refresh the Dashboard - Power Generation")
         }.bind(this), 30000);*/
-    }
+        }
 
     }
 

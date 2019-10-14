@@ -102,7 +102,7 @@
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
-                                <!-- <span class="badge badge-dark">{{ charging }}</span> -->
+                                
                                 <h4 class="m-0 pb-0">{{ charging }}</h4>
                             </div> 
                         </div> 
@@ -148,8 +148,12 @@
                         </div>
                   </div>
 
-                 </div>
+                 </div>   
+                 
+
             </div>
+
+            
                  
             <div class="card-footer bg-white br-0 pl-5 pr-5 pt-0 pb-0">
 
@@ -213,10 +217,14 @@
         watch :{
             switch1 : function(value){
                 if(value){
-                    this.sendRequest();
+                    //this.sendRequest();
+                    console.log("Charging on");
+                    this.$emit('clicked', 1);
                 }
                 else{
-                    console.log("Boong..");
+                     console.log("Charging off");
+                     this.$emit('clicked', 0);
+                    //console.log("Boong..");
                 }
                 
             }

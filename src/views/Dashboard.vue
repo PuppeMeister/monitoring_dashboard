@@ -46,7 +46,8 @@
             :voltage="battVoltage"
             :level="battLevel"
             :charging="charging"
-            :discharging="discharging"> </Battery>
+            :discharging="discharging"
+            v-on:clicked="listenToCharging($event)"> </Battery>
 
         <SolarLoad
             title="Load"
@@ -98,6 +99,7 @@ import Battery from './dashboard/dashboardcomponent/battery.vue';
 import LineChartJs from './dashboard/dashboardcomponent/subcharts/LineChartJConsumption.vue';
 import io from 'socket.io-client';
 
+
 import axios from 'axios';
 
 const socket = io('http://localhost:19997');
@@ -140,6 +142,7 @@ export default{
             idxPowerLoad: 0,
             timePowerSolar: "",
             timePowerLoad: ""
+           
 
 
         }
@@ -157,9 +160,9 @@ export default{
           return dateTime;
         },
 
-        requestDeviceType: function () {
+        /*pushCharging: function () {
         
-            var urlWrapper ="http://127.0.0.1:19998/deviceInformation/deviceType"
+            var urlWrapper ="http://127.0.0.1:19998/charging"
        
                 axios.get(urlWrapper)
                 .then(({data}) => {
@@ -169,7 +172,60 @@ export default{
                 .catch(error => {
                     console.log(error.response)
                 }) 
+        },*/
+
+        /*pushCharging: function(data){
+
+            axios.post('http://127.0.0.1:19998/charging', {
+
+                    "headers" :{
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+
+                    },
+                    "body" :{
+                         "command": "data"
+                    }
+
+                   
+
+                })
+                .then(function (response) {
+
+                   console.log("Response from server -> "+response);
+
+                })
+                .catch(function (error) {
+
+                     console.log("Error from server -> "+ERROR);
+
+                });
+        },*/
+
+        pushCharging: function(data){
+          
+            axios.post('http://localhost:19998/charging', {"command" : data},   { 
+                    headers :{
+                         'Access-Control-Allow-Origin': '*'
+                            /*"Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"*/
+
+                    } })
+                .then(function (response) {
+
+                   console.log("Response from server -> "+response);
+
+                })
+                .catch(function (error) {
+
+                     console.log("Error from server -> "+error);
+
+                });
         },
+
+       
        
         showSidebar: function(){
             this.$emit("showSidebar", true);
@@ -312,6 +368,16 @@ export default{
                     console.log("Battery Discharging = "+data);
                 });
 
+        },
+
+        //listen to event
+
+        listenToCharging : function(data){
+
+            this.pushCharging(data);
+            //console.log("Isi kiriman message dari switch button -> "+data);
+            //socket.emit('charging', 'data is emitted !');
+            //console.log("Udah Kirim!");
         }
     
 
@@ -320,7 +386,7 @@ export default{
     
     components: {
         
-         LineChartJs,
+     
         //DeviceInfo,
         PowerGeneration,
         /*Consumption,
@@ -330,9 +396,14 @@ export default{
         Warning,*/
         SolarLoad,
         Battery
+        
     },
-  
-    
+
+   /* watch:{
+        onChildClick(value){
+            console.log("value dari switch button --> "+value);
+        }
+    },*/
 
     mounted: function(){
         localStorage.idxSolar = 0;

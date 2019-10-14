@@ -5,6 +5,7 @@
                 
                    <img src="src/images/solarPanel.png" alt="" height="50" width="50" class="float-left pr-0">
                     <h3 class="float-left bold pb-0"> <strong>{{ title }}</strong></h3>
+                   
                             
             </div><!-- /.card-top -->
             <!-- <div class="card-body p-0 pt-4 pb-4 download-chart"> -->
@@ -148,7 +149,7 @@
             </div>
                  
             <div class="card-footer bg-white br-0 pl-5 pr-5 pt-0 pb-0">
-                    
+                   
             </div>
         </div>
     </div>

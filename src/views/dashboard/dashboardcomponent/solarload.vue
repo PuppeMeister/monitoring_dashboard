@@ -161,35 +161,16 @@
     name: 'solarload',
     props: ['title', 'power', 'current', 'voltage', 'daily', 'monthly', 'annual', 'total'],
 
-    methods: {
+        methods: {
 
-                pullAmountPerMinute: function () {
-        
-                    var urlWrapper ="http://127.0.0.1:19998/powerGeneration/amountPerMinute"
-       
-                    axios.get(urlWrapper)
-                        .then(({data}) => {
-                        this.amountPerMinute = data.finalResult
-                        console.log("[Power Generation][Amount Per Minute] ", this.amountPerMinute)
-                    })
-                    .catch(error => {
-                        console.log(error.response)
-                    }) 
-                }        
-        
         },
 
         computed: {
-                /*theDataChart() {
-                    console.log("My Amount Per Minute = "+this.amountPerMinute);
-                    return [0, this.amountPerMinute, 0, 0, 0] 
-                }*/
+               
         },
         
         watch: {
-            /*power : function(val){
-                console.log("Chance no Juban");
-            }*/
+         
         },
 
         mounted: function(){

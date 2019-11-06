@@ -1,10 +1,10 @@
  <template>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-xs-2 col-sm-4 ml-0 mr-0">
         <div class="card">
             <div class="card-top">
                 
-                   <img src="src/images/solarPanel.png" alt="" height="50" width="50" class="float-left pr-0">
-                    <h3 class="float-left bold pb-0"> <strong>{{ title }}</strong></h3>
+                   <img src="src/images/solarPanel.png" alt="" height="25" width="25" class="float-left mr-2">
+                    <h6 class="float-left bold"> <strong>{{ title }}</strong></h6>
                    
                             
             </div><!-- /.card-top -->
@@ -16,18 +16,18 @@
                   <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="src/images/power.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/power.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left pl-0">
-                                <h4>Power</h4> 
+                                <h6><small>Power (W)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ this.power }}</span> -->
-                                 <h4 class="m-0 pb-0">{{ power }}</h4> 
+                                 <h6 class="m-0 pb-0"><small>{{ power }}</small></h6> 
                             </div> 
                         </div>   
                   </div>
@@ -35,18 +35,18 @@
                   <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="src/images/current.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/current.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div>
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-0">Current</h4> 
+                                <h6 class="m-0 pb-0"><small>Current (A)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ this.current }}</span> -->
-                                 <h4 class="m-0 pb-0">{{current }}</h4> 
+                                 <h6 class="m-0 pb-0"><small>{{current }}</small></h6> 
                             </div> 
                         </div> 
                   </div>
@@ -54,18 +54,18 @@
                   <div class="row">
                       <div class="col-md-2">
                             <div>
-                                <img src="src/images/voltage.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/voltage.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-1">Voltage</h4> 
+                                <h6 class="m-0 pb-1"><small>Voltage (V)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                <!--  <span class="badge badge-dark">{{ voltage }}</span> -->
-                                <h4 class="m-0 pb-0">{{ voltage }}</h4> 
+                                <h6 class="m-0 pb-0"><small>{{ voltage }}</small></h6> 
                             </div> 
                         </div> 
                   </div>
@@ -73,18 +73,18 @@
                   <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="src/images/daily.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/daily.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-1">Daily</h4> 
+                                <h6 class="m-0 pb-1"><small>Daily (Ah)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ daily }}</span> -->
-                                 <h4 class="m-0 pb-0">{{ daily }}</h4> 
+                                 <h6 class="m-0 pb-0"><small>{{ daily }}</small></h6> 
                             </div> 
                         </div> 
                   </div>
@@ -92,57 +92,65 @@
                   <div class="row">
                       <div class="col-md-2">
                             <div>
-                                <img src="src/images/monthly.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/monthly.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-1">Monthly</h4> 
+                                <h6 class="m-0 pb-1"><small>Monthly (A)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ monthly }}</span> -->
-                                 <h4 class="m-0 pb-0">{{ monthly }}</h4> 
+                                 <h6 class="m-0 pb-0"><small>{{ monthly }}</small></h6> 
                             </div> 
                         </div> 
                   </div>
                   <div class="row">
                         <div class="col-md-2">
                             <div>
-                                <img src="src/images/annual.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/annual.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-1">Annual</h4> 
+                                <h6 class="m-0 pb-1"><small>Annual (A)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ annual }}</span> -->
-                                 <h4 class="m-0 pb-0">{{ annual }}</h4> 
+                                 <h6 class="m-0 pb-0"><small>{{ annual }}</small></h6> 
                             </div> 
                         </div> 
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-0">
                         <div class="col-md-2">
                             <div>
-                                <img src="src/images/total.png" alt="" height="45" width="45" class="float-right">
+                                <img src="src/images/total.png" alt="" height="25" width="25" class="float-right">
                             </div>
                         </div> 
                         <div class="col-md-4">
                              <div class="item text-left">
-                                <h4 class="m-0 pb-1">Total</h4> 
+                                <h6 class="m-0 pb-1"><small>Total (W)</small></h6> 
                             </div>
                         </div> 
                         <div class="col-md-4">
                             <div class="item text-center">
                                 <!-- <span class="badge badge-dark">{{ total }}</span> -->
-                                 <h4 class="m-0 pb-0">{{ total }}</h4> 
+                                 <h6 class="mb-2"><small>{{ total }}</small></h6> 
                             </div> 
                         </div> 
+                  </div>
+                   <div class="row mb-0">
+                        <div class="col-md-6">
+                            <div class="item text-center mb-0">
+                                 <!-- <h6 class="ml-5"><small>Last Updated : </small></span></h6> -->
+                                  <span class="badge badge-dark ml-5">Last Updated : {{updatedTime}}</span>
+                            </div>
+                        </div>
                   </div>
 
                  </div>
@@ -156,11 +164,11 @@
 </template>
 
 <script>
-    import axios from 'axios';
+   
     export default({
        
     name: 'solarload',
-    props: ['title', 'power', 'current', 'voltage', 'daily', 'monthly', 'annual', 'total'],
+    props: ['title', 'power', 'current', 'voltage', 'daily', 'monthly', 'annual', 'total', 'updatedTime'],
 
         methods: {
 
@@ -171,7 +179,7 @@
         },
         
         watch: {
-         
+            
         },
 
         mounted: function(){

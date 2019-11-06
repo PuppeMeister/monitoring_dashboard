@@ -35,7 +35,8 @@
             :daily="solarDaily"
             :monthly="solarMonthly"
             :annual="solarAnnual"
-            :total="solarTotal"></SolarLoad>
+            :total="solarTotal"
+            :updatedTime="solarTime"></SolarLoad>
 
         
 
@@ -45,9 +46,9 @@
             :current="battCurrent"
             :voltage="battVoltage"
             :level="battLevel"
-            :charging="charging"
-            :discharging="discharging"
-            v-on:clicked="listenToCharging($event)"> </Battery>
+            :updatedTime="batteryTime"
+            v-on:charging="listenToCharging($event)"
+            v-on:discharging="listenToDischarging($event)"> </Battery>
 
         <SolarLoad
             title="Load"
@@ -57,7 +58,8 @@
             :daily="loadDaily"
             :monthly="loadMonthly"
             :annual="loadAnnual"
-            :total="loadTotal"> </SolarLoad>
+            :total="loadTotal"
+            :updatedTime="loadTime"> </SolarLoad>
 
          <!-- <div class = "small">
                              <line-chart-js
@@ -71,9 +73,10 @@
         <!-- <PowerGeneration title = "Power" bgColour = "rgba(0, 123, 255, 0.5)" :theDataChart ="dataChartPower" :labelsData="dataLabelPower"/> -->
 
 
-        <PowerGeneration title = "Solar" bgColour = "rgb(89, 165, 89)" :valueChart ="solarPower" :idxChart="idxPowerSolar" :timeChart="timePowerSolar"/>
-        <PowerGeneration title = "Power" bgColour = "rgba(0, 123, 255, 0.5)" :valueChart ="loadPower" :idxChart="idxPowerLoad" :timeChart="timePowerLoad"/>
-
+        <!-- <PowerGeneration title = "Solar" bgColour = "rgb(89, 165, 89)" :valueChart ="solarPower" :idxChart="idxPowerSolar" :timeChart="timePowerSolar"/>
+        <PowerGeneration title = "Power" bgColour = "rgba(0, 123, 255, 0.5)" :valueChart ="loadPower" :idxChart="idxPowerLoad" :timeChart="timePowerLoad"/> -->
+        <RealTime :realTimeValue ="solarPower" label= "Solar Power : " title="Solar" valueCanvasId = "flotRealtime" :updatedTime="solarTime"/>
+        <RealTime2 :realTimeValue ="loadPower" label= "Load Power : " title="Load" valueCanvasId= "flotRealtime2" :updatedTime="loadTime"/>
         <!-- <Consumption />
         <BatteryLevel/> -->
         <!-- <Weather />
@@ -97,12 +100,14 @@ import Warning from './dashboard/dashboardcomponent/Warningdashboard/dashboardco
 import SolarLoad from './dashboard/dashboardcomponent/solarload.vue';
 import Battery from './dashboard/dashboardcomponent/battery.vue';
 import LineChartJs from './dashboard/dashboardcomponent/subcharts/LineChartJConsumption.vue';
+import RealTime from './dashboard/dashboardcomponent/RealTime.vue';
+import RealTime2 from './dashboard/dashboardcomponent/RealTime2.vue';
 import io from 'socket.io-client';
 
 
 import axios from 'axios';
 
-const socket = io('http://localhost:19997');
+const socket = io('http://127.0.0.1.:19997');
 
 export default{
     
@@ -141,8 +146,13 @@ export default{
             idxPowerSolar: 0,
             idxPowerLoad: 0,
             timePowerSolar: "",
-            timePowerLoad: ""
-           
+            timePowerLoad: "",
+            /*solarTime: " yyyy:mm:dd 00:00:00:000",
+            batteryTime: " yyyy:mm:dd 00:00:00:000",
+            loadTime: " yyyy:mm:dd 00:00:00:000"*/
+            solarTime: "",
+            batteryTime: "",
+            loadTime: ""
 
 
         }
@@ -160,52 +170,9 @@ export default{
           return dateTime;
         },
 
-        /*pushCharging: function () {
-        
-            var urlWrapper ="http://127.0.0.1:19998/charging"
-       
-                axios.get(urlWrapper)
-                .then(({data}) => {
-                    this.deviceType = data.finalResult
-            
-                })
-                .catch(error => {
-                    console.log(error.response)
-                }) 
-        },*/
-
-        /*pushCharging: function(data){
-
-            axios.post('http://127.0.0.1:19998/charging', {
-
-                    "headers" :{
-                            "Content-Type": "application/json",
-                            "Access-Control-Allow-Origin": "*",
-                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-
-                    },
-                    "body" :{
-                         "command": "data"
-                    }
-
-                   
-
-                })
-                .then(function (response) {
-
-                   console.log("Response from server -> "+response);
-
-                })
-                .catch(function (error) {
-
-                     console.log("Error from server -> "+ERROR);
-
-                });
-        },*/
-
-        pushCharging: function(data){
+        pushCharging: function(uri, data){
           
-            axios.post('http://localhost:19998/charging', {"command" : data},   { 
+            axios.post(uri, {"command" : data},   { 
                     headers :{
                          'Access-Control-Allow-Origin': '*'
                             /*"Content-Type": "application/json",
@@ -236,7 +203,7 @@ export default{
             // Solar Listener
             socket.on('solarCurrent', (data)=>{
                 this.solarCurrent = data;
-                //console.log("Solar Current = "+data);
+                console.log("Solar Current = "+data);
             });
 
             socket.on('solarPower', (data)=>{ 
@@ -246,59 +213,60 @@ export default{
 
                 console.log("Solar Power = "+data+" || Time = "+this.timePowerSolar+" || idx = "+this.idxPowerSolar);
     
-               
-                
-                //this.dataChartSolar[localStorage.count] = data;
-                //console.log("Solar Data Chart idx || "+localStorage.count+" || "+ this.dataChartSolar[localStorage.count]);
-                if(localStorage.idxSolar == 5){
+                /*if(localStorage.idxSolar == 5){
                     localStorage.idxSolar = 0;
                 }else{
                     localStorage.idxSolar++;
-                }
+                }*/
 
             });
             
             socket.on('solarVoltage', (data)=>{ 
                 this.deviceType = data;
                 this.solarVoltage = data
-                //console.log("Device Type = "+data);
+                console.log("Device Type = "+data);
                 });
             
             socket.on('solarAnnual', (data)=>{
                 this.solarAnnual = data;
-                //console.log("Solar Annual = "+data);
+                console.log("Solar Annual = "+data);
             });
 
             socket.on('solarDaily', (data)=>{
                 this.solarDaily = data;
-                //console.log("Solar Daily = "+data);
+                console.log("Solar Daily = "+data);
             });
 
             socket.on('solarMonthly', (data)=>{
                 this.solarMonthly = data;
-                //console.log("Solar Monthly = "+data);
+                console.log("Solar Monthly = "+data);
             });
 
             socket.on('solarAnnual', (data)=>{
                 this.solarAnnual = data;
-                //console.log("Solar Annual = "+data);
+                console.log("Solar Annual = "+data);
             });
 
             socket.on('solarTotal', (data)=>{
                 this.solarTotal = data;
-                //console.log("Solar total = "+data);
+                console.log("Solar total = "+data);
+            });
+
+            socket.on('solarTime', (data)=>{
+                this.solarTime = data;
+                console.log("Solar Time = "+data);
             });
 
             //Load Listener
 
             socket.on('loadCurrent', (data)=>{
                             this.loadCurrent = data;
-                            //console.log("Load Current = "+data);
+                            console.log("Load Current = "+data);
                 });
 
                 socket.on('loadVoltage', (data)=>{
                             this.loadVoltage = data;
-                            //console.log("Load Voltage = "+data);
+                            console.log("Load Voltage = "+data);
                 });
 
                 socket.on('loadPower', (data)=>{
@@ -310,31 +278,36 @@ export default{
                         console.log("Load Power = "+this.loadPower+" || Time = "+this.timePowerLoad+" || idx = "+this.idxPowerLoad);
             
                     
-                        if(localStorage.idxLoad == 5){
+                        /*if(localStorage.idxLoad == 5){
                             localStorage.idxLoad = 0;
                         }else{
                             localStorage.idxLoad++;
-                        }
+                        }*/
                 
                 });
 
                 socket.on('loadDaily', (data)=>{
                             this.loadDaily = data;
-                            //console.log("Load Daily = "+data);
+                            console.log("Load Daily = "+data);
                 });
                 socket.on('loadMonthly', (data)=>{
                             this.loadMonthly = data;
-                            //console.log("Load Monthly = "+data);
+                            console.log("Load Monthly = "+data);
                 });
 
                 socket.on('loadAnnual', (data)=>{
                             this.loadAnnual = data;
-                            //console.log("Load Annual = "+data);
+                            console.log("Load Annual = "+data);
                 });
 
                 socket.on('loadTotal', (data)=>{
                             this.loadTotal = data;
-                            //console.log("Load Total = "+data);
+                            console.log("Load Total = "+data);
+                });
+
+                socket.on('loadTime', (data)=>{
+                            this.loadTime = data;
+                            console.log("Load Time = "+data);
                 });
             
             //battery listener
@@ -357,6 +330,11 @@ export default{
                     this.battPower= data;
                     console.log("Battery Power = "+data);
                 });
+
+                socket.on('batteryTime', (data)=>{
+                    this.batteryTime= data;
+                    console.log("Updated Time = "+data);
+                });
                 
                 socket.on('charging', (data)=>{
                     this.charging= data;
@@ -374,10 +352,13 @@ export default{
 
         listenToCharging : function(data){
 
-            this.pushCharging(data);
-            //console.log("Isi kiriman message dari switch button -> "+data);
-            //socket.emit('charging', 'data is emitted !');
-            //console.log("Udah Kirim!");
+            this.pushCharging('http://127.0.0.1:19998/charging', data);
+        },
+
+        listenToDischarging : function(data){
+            console
+            this.pushCharging('http://127.0.0.1:19998/discharging', data);
+          
         }
     
 
@@ -395,8 +376,10 @@ export default{
         Weather,
         Warning,*/
         SolarLoad,
-        Battery
-        
+        Battery,
+        RealTime,
+        RealTime2
+
     },
 
    /* watch:{

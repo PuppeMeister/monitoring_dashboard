@@ -94,7 +94,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    //host: '192.168.0.20',
+    host: '127.0.0.1',
+    port: 19999
   },
   performance: {
     hints: false

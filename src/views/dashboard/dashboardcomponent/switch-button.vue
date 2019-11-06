@@ -1,13 +1,13 @@
 <template id="switch-button">
   <div class="switch-button-control">
       <div class="switch-button-label">
-        <slot>Off</slot>
+        <slot><small>Off</small></slot>
      </div>
     <div class="switch-button" :class="{ enabled: isEnabled }" @click="toggle" :style="{'--color': color}">
       <div class="button"></div>
     </div>
     <div class="switch-button-label">
-      <slot>On</slot>
+      <slot><small>On</small></slot>
     </div>
   </div>
 </template>

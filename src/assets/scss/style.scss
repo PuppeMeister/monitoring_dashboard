@@ -1038,6 +1038,11 @@ header .form-inline {
 .flotRealtime2 {
     height: 445px;
 }
+
+.flotRealtime {
+    height: 445px;
+}
+
 .traffic-chart {
     height: 323px;
 }
@@ -2216,6 +2221,9 @@ footer.site-footer {
         // }
     }
     .flotRealtime2 {
+        height: 330px;
+    }
+    .flotRealtime {
         height: 330px;
     }
     .card {

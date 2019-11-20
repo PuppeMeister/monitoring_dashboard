@@ -15,12 +15,13 @@
                <!-- <h6 class="text-center"><Strong>{{ totalPowerGen }}</Strong><span class="badge badge-info"> kWh </span></h6> --> 
                   
                      
-                      <div class = "small">
+                     <div class = "small">
                              <line-chart-js
                                  :valueChart ="valueChart" 
                                  :theBackgroundColor ="bgColour"
                                  :idxChart ="idxChart"
                                  :timeChart ="timeChart"/>
+                           
                       </div>
                         <!-- <h3 class="float-left bold"> <strong>{{ theDataChart }}</strong></h3> -->
                         <!-- <PowerChart/> -->
@@ -64,30 +65,17 @@
 <script>
     //import PowerChart from './subcharts/powerChart.vue';
     import LineChartJs from './subcharts/LineChartJConsumption.vue';
+  
     
     export default {
         
         components:{
            LineChartJs
+        
         },
 
-        /*props: {
-            theDataChart : { type: Array},
-            type : {type : String},
-            bgColour : {type : String},
-            labelsData : {type : Array},
-            power: {type : String}
-        },*/
-
        props : [ 'title', 'bgColour', 'valueChart', 'idxChart', 'timeChart'],
-        /*data(){
-             return{
-                bgValue : this.bgColour,
-                dataChart : this.theDataChart
-
-             }
-        },*/
-
+       
          methods: {
 
                 
@@ -99,14 +87,7 @@
         },
         
         watch: {
-                /*theDataChart(val){
-                    
-                    console.log("Power Generation -> Chart -->  Ping");
-                },
-
-                power(val){
-                    console.log("Power Generation -> power --> "+this.theDataChart);
-                }*/
+             
         },
 
         mounted: function(){

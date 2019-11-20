@@ -1661,8 +1661,11 @@ header .form-inline {
 .traffic-chart .ct-series-c .ct-slice-pie {
   fill: #5c6bc0; }
 
-.flotRealtime2 {
+.flotRealtime {
   height: 445px; }
+
+  .flotRealtime2 {
+    height: 445px; }
 
 .traffic-chart {
   height: 34vh; }
@@ -2658,6 +2661,9 @@ footer.site-footer {
 
   .flotRealtime2 {
     height: 330px; }
+
+    .flotRealtime {
+      height: 330px; }
 
   .card {
     margin-bottom: 1.25em; }
